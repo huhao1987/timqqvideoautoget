@@ -1,18 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.hao.timspeakerlisten.MainActivity">
-
-    <TextView
+<TextView
+    android:id="@+id/actionlabel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+android:layout_centerHorizontal="true"
+    android:text="@string/action"/>
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/setauto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginRight="10dp"
+        android:textOn="@string/actionon"
+        android:textOff="@string/actionoff"
+        android:layout_alignBaseline="@+id/actionlabel"
+        android:layout_alignBottom="@+id/actionlabel"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="26dp" />
 
-</android.support.constraint.ConstraintLayout>
+    <RadioGroup
+        android:id="@+id/videochose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_below="@+id/actionlabel"
+        android:layout_alignParentStart="true">
+        <RadioButton
+            android:id="@+id/accept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/videoaccept"
+            />
+        <RadioButton
+            android:id="@+id/deject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/videodeject"
+            />
+        <RadioButton
+            android:id="@+id/usemessagesend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/usemessagesend"
+            />
+        <RadioButton
+            android:id="@+id/videotoaudio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/videotoaudio"
+            />
+    </RadioGroup>
+    <LinearLayout
+        android:id="@+id/timeswitchboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/videochose">
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/timeswitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/timeswitch"/>
+    <TextView
+        android:id="@+id/starttime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="@string/starttime"
+        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="---"/>
+    <TextView
+        android:id="@+id/endtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/endtime"/>
+    </LinearLayout>
+<TimePicker
+    android:id="@+id/timepicker"
+    android:layout_below="@+id/timeswitchboard"
+    android:layout_marginTop="10dp"
+    android:visibility="visible"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"></TimePicker>
+</RelativeLayout>

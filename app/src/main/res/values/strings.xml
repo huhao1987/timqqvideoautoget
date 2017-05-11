@@ -1,4 +1,19 @@
 <resources>
-    <string name="app_name">TIMspeakerlisten</string>
+    <string name="app_name">QQactionautoanswer</string>
     <string name="descr">This is a app for TIM/QQ listener</string>
+    <string name="action">设置自动行为(视频/语音)</string>
+    <string name="actionon">开启</string>
+    <string name="actionoff">关闭</string>
+
+    <string name="videoaccept">接听</string>
+    <string name="videodeject">拒绝</string>
+    <string name="usemessagesend">消息回复</string>
+    <string name="videotoaudio">语音接听</string>
+    <string name="cancelauto">取消自动功能</string>
+    <string name="openauto">开启自动功能</string>
+
+    <string name="timeswitch">开启时间段</string>
+    <string name="starttime">开始时间</string>
+    <string name="endtime">结束时间</string>
+
 </resources>

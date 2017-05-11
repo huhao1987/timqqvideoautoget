@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TIMspeakerlisten.iml" filepath="$PROJECT_DIR$/TIMspeakerlisten.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/timeqqvideoautoget.iml" filepath="$PROJECT_DIR$/timeqqvideoautoget.iml" />
     </modules>
   </component>
 </project>

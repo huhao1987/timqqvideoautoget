@@ -33,7 +33,28 @@ public class Myaccessibiligtyservice extends AccessibilityService {
         );
         ActivityInfo activityInfo=tryGetActivity(componentName);
         boolean isActivity = activityInfo != null;
+        int actionint=mySharedPreferences.getAction();
+        String action="";
+        switch (actionint)
+        {
+            case Global.ACCPET:
+                action=getString(R.string.videoaccept);
+                break;
+            case Global.DEJECT:
+                action=getString(R.string.videodeject);
 
+                break;
+            case Global.MESSAGE:
+                action=getString(R.string.usemessagesend);
+
+                break;
+            case Global.CHANGETOAU:
+                action=getString(R.string.videotoaudio);
+
+                break;
+
+
+        }
         if (isActivity)
             Log.d(TAG, componentName.getShortClassName());
 
@@ -47,16 +68,28 @@ public class Myaccessibiligtyservice extends AccessibilityService {
 
                 if(componentName.getShortClassName().equals("com.tencent.av.ui.VideoInviteFull")) {
 //                    Log.d(TAG, packagename + " windows change");
+//                    recycle(accessibilityNodeInfo);
+
                     if (accessibilityNodeInfo!=null)
                     {
-                      List<AccessibilityNodeInfo> list=accessibilityNodeInfo.findAccessibilityNodeInfosByText("接听");
-                        accessibilityNodeInfo.recycle();
-                        for(AccessibilityNodeInfo i:list)
-                        {
-                            i.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+                        if(mySharedPreferences.getOpenAuto()) {
+                            List<AccessibilityNodeInfo> list = accessibilityNodeInfo.findAccessibilityNodeInfosByText(action);
+                            accessibilityNodeInfo.recycle();
+                            for (AccessibilityNodeInfo i : list) {
+                                i.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+                            }
+//                            if(action.equals(getString(R.string.usemessagesend)))
+//                            {
+//                                AccessibilityNodeInfo a2=getRootInActiveWindow();
+//                                recycle(a2);
+//                            }
                         }
-//                        recycle(accessibilityNodeInfo);
                     }
+                }
+                if(componentName.getShortClassName().equals("Android.App.Dialog"))
+                {
+                                        recycle(accessibilityNodeInfo);
+
                 }
             }
                 break;
@@ -69,13 +102,13 @@ public class Myaccessibiligtyservice extends AccessibilityService {
 
         if (info.getChildCount() == 0) {
 
-//            Log.i(TAG, "child widget----------------------------" + info.getClassName());
+            Log.i(TAG, "child widget----------------------------" + info.getClassName());
 
             Log.i(TAG, "id:" + info.getViewIdResourceName());
 
-//            Log.i(TAG, "Text：" + info.getText());
-//
-//            Log.i(TAG, "windowId:" + info.getWindowId());
+            Log.i(TAG, "Text：" + info.getText());
+
+            Log.i(TAG, "windowId:" + info.getWindowId());
 
         } else {
 
