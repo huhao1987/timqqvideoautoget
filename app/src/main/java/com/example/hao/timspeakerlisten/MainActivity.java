@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         setauto=(SwitchCompat) findViewById(R.id.setauto);
         setauto.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -105,12 +106,21 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
+
+    }
+
+    protected void onResume()
+    {
+        super.onResume();
         if (!isAccessibilitySettingsOn(this)) {
             Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
             startActivity(intent);
         }
+        else {
+            String apkRoot = "chmod 777 " + getPackageCodePath();
+            systemManager.RootCommand(apkRoot);
+        }
     }
-
     private boolean isAccessibilitySettingsOn(Context mContext) {
         int accessibilityEnabled = 0;
         final String service = getPackageName() + "/" + Myaccessibiligtyservice.class.getCanonicalName();

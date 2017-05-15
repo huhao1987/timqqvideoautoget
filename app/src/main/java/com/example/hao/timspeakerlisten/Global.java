@@ -9,5 +9,7 @@ public class Global {
     public static final int DEJECT=1;
     public static final int MESSAGE=2;
     public static final int CHANGETOAU=3;
+    public static int qqlockruntime=0;
+
 
 }

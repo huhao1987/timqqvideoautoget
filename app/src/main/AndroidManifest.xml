@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hao.timspeakerlisten">
     <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
-
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <application
         android:name=".customApplication"
         android:allowBackup="true"
